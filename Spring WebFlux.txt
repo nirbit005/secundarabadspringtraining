@@ -1,0 +1,52 @@
+The reactive - stack web framework, Spring WebFlux, has been added Spring 5.0. It is fully non-blocking, support reactive streams back pressure.
+
+Reactive Programming 
+
+Reactive programming is a programming paradigm that promotes an asynchronous, non blocking, event-driven approach to data processing. Reactive programming invokes modeling data and events as observable data streams and implementing data processing routines to reach to the changes in those streams. 
+
+
+Blocking request processing 
+
+In traditional MVC applications, when a request come to server, a servlet thread is created. It delegates the request to worker threads for IO operations such as database access etc. During the time worker threads are busy, servlet thread (request thread) remain in waiting status and thus it is blocked. It is also called synchronous request processing. 
+
+Non Blocking request processing 
+
+In Non blocking or asynchronous request processing, no thread is in waiting state. There is generally only one request thread receiving the request. 
+
+All incoming requests come with a event handler and call back information. Request thread delegates the incoming requests to a thread pool (generally small number of threads) which delegates the request to it's handler function and immediately start processing other incoming requests from request thread. 
+
+When the handler function is complete, one of thread from pool collect the response and pass it to the call back function. 
+
+What is reactive programming 
+
+The term, "reactive" refers to programming models that are built around reacting to changes. It is build around publisher - subscriber pattern (observer pattern). In reactive style of programming, we make a request for resource and start performing other things. When the data is available, we get the notification along with data inform of call back function.
+
+Reactive API 
+
+Publisher: The publisher is the source that will send the data to one or more subscribers.
+
+Subscriber: A subscriber will subscribe itself to a publisher, will indicate how much data the publisher may send and will process the data.
+
+Subscription: On the publisher side, a subscription will be created, which will be shared with a subscriber.
+
+Processor: A processor can be used to sit between a publisher and a subscriber, this way a transformation of the data can take place.
+
+
+What is Spring WebFlux 
+
+Spring WebFlux is parallel version of Spring MVC and support fully non-blocking reactive streams. It support back pressure concept.
+
+Spring WebFlux heavily uses two publishers. 
+
+Mono: Return 0 or 1 elements 
+
+Mono<String> mono = Mono.just("Akash");
+Mono<String> mono = Mono.empty();
+
+Flux: Return 0...N elements, A Flux can be endless, meaning that is can keep emitting elements forever. Also it can return a sequence of elements and then send a completion notification when it has returned all of its elements. 
+
+Flux<String> flux = Flux.just("A","B","C");
+Flux<String> flux = Flux.fromArray(new String[]{"A","B","C"});
+Flux<String> flux = Flux.fromIterable(Arrays.asList("A","B","C"));
+
+

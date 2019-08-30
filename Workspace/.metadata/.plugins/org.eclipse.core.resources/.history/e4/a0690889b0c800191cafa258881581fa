@@ -1,0 +1,13 @@
+package com;
+
+public class LoginDao {
+
+	public boolean checkUserDetails(Login ll) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

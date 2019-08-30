@@ -1,0 +1,25 @@
+package com;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class DemoTest {
+
+	public static void main(String[] args) {
+		Configuration con = new Configuration();
+		con.configure("hibernate.cfg.xml");
+		System.out.println("File loaded successfully...");
+		SessionFactory	sf	 = con.buildSessionFactory();
+		Session session = sf.openSession();
+		//Retrieve one record
+		/*Employee emp = session.get(Employee.class, 1000);
+		if(emp!=null) {
+			System.out.println("id is "+emp.getId()+" name "+emp.getName()+" salary "+emp.getSalary());
+		}else {
+			System.out.println("Record is not present");
+		}*/
+		
+	}
+
+}

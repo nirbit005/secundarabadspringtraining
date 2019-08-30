@@ -1,0 +1,28 @@
+package com;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class LoginDao {
+
+	public boolean checkUserDetails(Login ll) {
+		try {
+Class.forName("com.mysql.jdbc.Driver");
+Connection con = 
+DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb1", "root", "root");	
+PreparedStatement pstmt = 
+con.prepareStatement("select * from login where user like ? and pass like ?");
+pstmt.setString(1, ll.getUser());
+pstmt.setString(2, ll.getPass());
+ResultSet rs = pstmt.executeQuery();
+if(rs.next()) {
+	return true;
+}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+}

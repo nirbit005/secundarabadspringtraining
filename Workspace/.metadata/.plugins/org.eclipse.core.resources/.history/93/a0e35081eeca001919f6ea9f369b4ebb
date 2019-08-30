@@ -1,0 +1,8 @@
+package com.bean;
+
+public class TrainerStudent {
+private String tname;
+private String sname;
+private int age;
+
+}

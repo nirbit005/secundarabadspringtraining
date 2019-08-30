@@ -1,0 +1,33 @@
+package com.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class EmployeeController {
+
+	@RequestMapping(value = "demo",method = RequestMethod.GET)
+	public ModelAndView sayHello() {
+		System.out.println("I Came here");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("display.jsp");
+		return mav;
+	}
+	
+	@RequestMapping(value = "store",method = RequestMethod.POST)
+	public ModelAndView storeInfo(HttpServletRequest req) {
+		System.out.println("I Came here");
+		int id = Integer.parseInt(req.getParameter("id"));
+		String name = req.getParameter("name");
+		float salary = Float.parseFloat(req.getParameter("salary"));
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("display.jsp");
+		return mav;
+	}
+	
+}

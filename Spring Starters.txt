@@ -1,0 +1,144 @@
+<parent>  
+ 	   <groupId>org.springframework.boot</groupId>  
+    	<artifactId>spring-boot-starter-parent</artifactId>  
+    	<version>2.0.3.RELEASE</version>  
+</parent>
+
+DI Starter 
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter</artifactId>
+</depedency>
+
+Web Starter 
+  <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-web</artifactId>  
+    </dependency>
+
+
+
+JDK Version
+
+<properties>  
+    <java.version>1.8</java.version>  
+</properties>
+
+
+JSP As View Starter 
+
+<!-- Tomcat Embed -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+           <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <!-- To compile JSP files -->
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+
+XML Format Dependencies  
+
+    <dependency>
+        <groupId>com.fasterxml.jackson.dataformat</groupId>
+        <artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
+
+MySQL Dependenices 
+
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.40</version>
+</dependency>
+
+
+
+persistence.xml 
+
+<property name="eclipselink.ddl-generator" value="create-tables"/>
+
+
+My SQL Datasource 
+
+
+spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.profiles.active=oracle
+spring.jpa.generate-ddl=true;
+spring.jpa.hibernate.ddl-auto=true;
+
+@EntityScan 
+
+
+Hibernate/JPA/Spring Data 
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+Log4j dependenices 
+
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+</dependency>
+
+
+spring.jackson.serialization.fail-on-empty-beans=false
+
+
+Hibernate core dependencies 
+
+
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.3.2.Final</version>
+</dependency>
+
+
+Eureka Server properties 
+
+server.port=8761
+eureka.client.registerWithEureka=false
+eureka.client.fetchRegistry=false
+
+
+Eureka Client Properties 
+
+server.port=8888
+spring.application.name=first-one
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
+Security Details
+
+spring.security.user.name=Akash
+spring.security.user.password=123
+
+
+server.servlet.session.timeout=60
+
+
+
+
+
+
+
+
+

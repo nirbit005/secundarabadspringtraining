@@ -1,0 +1,15 @@
+package com.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class EmployeeController {
+
+	public ModelAndView sayHello() {
+		System.out.println("I Came here");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("display.jsp");
+		return mav;
+	}
+}

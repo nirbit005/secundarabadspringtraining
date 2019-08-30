@@ -1,0 +1,23 @@
+package com;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class DemoTest {
+
+	public static void main(String[] args) {
+									
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("");
+		
+		EntityManager manager = emf.createEntityManager();
+		
+		Employee emp = new Employee();
+		emp.setId(100);
+		emp.setName("Rajesh");
+		emp.setSalary(16000);
+		
+		
+	}
+
+}

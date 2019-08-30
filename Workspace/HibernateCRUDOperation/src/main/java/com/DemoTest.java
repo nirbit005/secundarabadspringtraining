@@ -1,0 +1,72 @@
+package com;
+
+import java.util.List;
+import java.util.ListIterator;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class DemoTest {
+
+	public static void main(String[] args) {
+		Configuration con = new Configuration();
+		con.configure("hibernate.cfg.xml");
+		System.out.println("File loaded successfully...");
+		SessionFactory	sf	 = con.buildSessionFactory();
+		Session session = sf.openSession();
+		//Retrieve one record
+		/*Employee emp = session.get(Employee.class, 1000);
+		if(emp!=null) {
+			System.out.println("id is "+emp.getId()+" name "+emp.getName()+" salary "+emp.getSalary());
+		}else {
+			System.out.println("Record is not present");
+		}*/
+		//Delete record 
+		/*Employee emp = session.get(Employee.class,100);
+		if(emp!=null) {
+				Transaction tran = session.getTransaction();
+				tran.begin();
+				session.delete(emp);
+				tran.commit();
+				System.out.println("Record deleted successfully.....");
+		}else {
+			System.out.println("Record is not present");
+		}*/
+		//Update record 
+		/*		Employee emp = session.get(Employee.class,102);
+				if(emp!=null) {
+						Transaction tran = session.getTransaction();
+						tran.begin();
+								emp.setSalary(emp.getSalary()+200);
+								session.update(emp);
+						tran.commit();
+						System.out.println("Record updated successfully.....");
+				}else {
+					System.out.println("Record is not present");
+				}
+				*/
+		//Insert Record 
+		/*Employee emp = new Employee();
+		emp.setId(105);
+		emp.setName("Balaji");
+		emp.setSalary(24000);
+		Transaction tran = session.getTransaction();
+		tran.begin();
+					session.save(emp);
+		tran.commit();
+		System.out.println("Record stored successfully....");*/
+		
+		//Retrieve more than one records 
+		Query qry =session.createQuery("select e from Employee e");
+		List<Employee> empOfRec = qry.list();
+		ListIterator<Employee> listOfRec = empOfRec.listIterator();
+		while(listOfRec.hasNext()) {
+	Employee emp = listOfRec.next();
+	System.out.println("Id is "+emp.getId()+" Name is "+emp.getName()+" Salary "+emp.getSalary());
+		}
+	}
+
+}

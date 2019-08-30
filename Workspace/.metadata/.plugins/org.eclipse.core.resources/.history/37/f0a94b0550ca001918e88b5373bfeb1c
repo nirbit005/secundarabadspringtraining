@@ -1,0 +1,16 @@
+package com;
+
+public class DemoTest {
+
+	public static void main(String[] args) {
+									
+		
+		Employee emp = new Employee();
+		emp.setId(100);
+		emp.setName("Rajesh");
+		emp.setSalary(16000);
+		
+		
+	}
+
+}

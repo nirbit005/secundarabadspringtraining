@@ -1,0 +1,13 @@
+package com;
+
+public class LoginService {
+
+	//Business Logic 
+	public boolean checkUser(Login ll) {
+		if(ll.getUser().equals("Ravi") && ll.getPass().equals("123")) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+}

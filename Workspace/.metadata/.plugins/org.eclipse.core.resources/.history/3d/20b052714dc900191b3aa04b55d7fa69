@@ -1,0 +1,13 @@
+package com;
+
+public class Employee {
+	
+	public Employee() {
+		super();
+		System.out.println("Object created....");
+	}
+
+	public void display() {
+		System.out.println("business method");
+	}
+}

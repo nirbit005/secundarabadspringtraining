@@ -1,0 +1,28 @@
+package com;
+
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+@Controller
+public class EmployeeConroller {
+
+	@RequestMapping(value = "sayHello",
+	produces = MediaType.TEXT_PLAIN_VALUE,
+	method = RequestMethod.GET)
+	@ResponseBody
+	public String sayHello() {
+		return "Welcome to Spring boot MVC with Rest";
+	}
+	
+	public Employee getEmpInfo() {
+		Employee emp = new Employee();
+		emp.setId(100);
+		emp.setName("Ravi");
+		emp.setSalary(12000);
+		return emp;
+	}
+}

@@ -1,0 +1,8 @@
+package com;
+
+public class LoginDao {
+
+	public boolean checkUserDetails(Login ll) {
+		
+	}
+}

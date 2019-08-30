@@ -1,0 +1,32 @@
+package com.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EmployeeDao {
+
+	@Autowired
+	DataSource ds;
+
+	public Employee getEmployeeInfo(int id) {
+		try {
+			Connection con = ds.getConnection();
+			PreparedStatement pstmt = 
+			con.prepareStatement("select * from employee where id =?");
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

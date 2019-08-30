@@ -1,0 +1,56 @@
+package com;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+public class DemoTest {
+
+	public static void main(String[] args) {
+									
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPACRUDOperation");
+		EntityManager manager = emf.createEntityManager();
+		Employee emp = new Employee();
+		emp.setId(100);
+		emp.setName("Rajesh");
+		emp.setSalary(16000);
+		EntityTransaction tran = manager.getTransaction();
+		//Insert Records 
+		/*tran.begin();
+							manager.persist(emp);
+		tran.commit();
+		System.out.println("Record inserted successfully...");*/
+		//Delete Record 
+		/*Employee emp1 = manager.find(Employee.class, 100);
+		if(emp1!=null) {
+						tran.begin();
+									manager.remove(emp1);
+						tran.commit();
+						System.out.println("Record deleted successfully");
+		}else {
+				System.out.println("Record is not present");
+		}*/
+		//Update Record 
+		/*
+		Employee emp1 = manager.find(Employee.class, 102);
+		if(emp1!=null) {
+						tran.begin();
+									emp1.setSalary(emp1.getSalary()+500);
+									manager.merge(emp1);
+						tran.commit();
+						System.out.println("Record updated successfully");
+		}else {
+				System.out.println("Record is not present");
+		}
+		*/
+		//Retrieve One REcords 
+		Employee emp1 = manager.find(Employee.class, 102);
+		if(emp1!=null) {
+		System.out.println("Id is "+emp1.getId()+"Name is "+emp1.getName()+" Salary is "+emp1.getSalary());
+		}else {
+				System.out.println("Record is not present");
+		}
+	}
+
+}
