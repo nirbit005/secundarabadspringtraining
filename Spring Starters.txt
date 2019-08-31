@@ -18,6 +18,14 @@ Web Starter
     </dependency>
 
 
+Maven Java properties 
+
+ <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+
 
 JDK Version
 
@@ -125,6 +133,7 @@ Eureka Client Properties
 server.port=8888
 spring.application.name=first-one
 eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
 
 Security Details
 

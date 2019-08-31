@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="SpringDIUsingAnnotation"/>
+<aop-project name="SpringBootRestSecurity"/>
+<aop-project name="SpringBootWithJPA"/>
 <aop-project name="SpringDI"/>
+<aop-project name="SpringBootWithREST"/>
+<aop-project name="SpringStarterDemoApp"/>
+<aop-project name="SpringBootWithSpringData"/>
 <aop-project name="SpringMVC"/>
 </aop-reference-model>

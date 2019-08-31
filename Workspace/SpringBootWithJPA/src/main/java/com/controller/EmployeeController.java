@@ -35,6 +35,17 @@ public class EmployeeController {
 		return employeeService.getTrainerStudent();
 	}
 	
+	@RequestMapping(value="storeEmpInfo",
+			produces = MediaType.TEXT_PLAIN_VALUE,
+			method =RequestMethod.POST,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String storeEmployeeInfo(@RequestBody Employee emp ) {
+	System.out.println(" Post method");
+		return employeeService.storeEmployeeInfo(emp);
+	}
+	
+	
+	
 	/*
 	@RequestMapping(value="empInfoById/{id}",
 			produces = MediaType.APPLICATION_JSON_VALUE,

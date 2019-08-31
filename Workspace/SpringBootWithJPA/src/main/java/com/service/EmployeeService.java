@@ -5,10 +5,16 @@ import java.util.ListIterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.bean.Employee;
 import com.bean.TrainerStudent;
-import com.dao.EmployeeDao;
+import com.main.EmployeeDao;
 @Service
+
 public class EmployeeService {
 	@Autowired
 	EmployeeDao employeeDao;
@@ -27,6 +33,16 @@ public class EmployeeService {
 		return employeeDao.getTrainerStudentInfo();
 	}
 	
+	@Transactional(propagation = Propagation.REQUIRED,
+			rollbackFor = Exception.class,timeout = 5)
+	public String storeEmployeeInfo(Employee emp) {
+		try {
+			Thread.sleep(2000);
+			employeeDao.deleteStudentInfoById(emp.getId());
+			return employeeDao.storeEmployeeInfo(emp);	
+		}catch(Exception e) {}
+		return null;
+	}
 	
 	/*
 	public Employee getEmployeeInfo(int id) {
@@ -56,3 +72,4 @@ public class EmployeeService {
 		}
 	}*/
 }
+
